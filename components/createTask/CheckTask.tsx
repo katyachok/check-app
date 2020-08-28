@@ -28,8 +28,12 @@ const CheckTask: React.FC<ICheckTask> = ({
           </React.Fragment>
         )}
       </div>
-      <h1 style={{ marginBottom: "20px" }}>Markdown:</h1>
-      <div dangerouslySetInnerHTML={{ __html: htmlMarkdown }}></div>
+      {htmlMarkdown && (
+        <React.Fragment>
+          <h1 style={{ marginBottom: "20px" }}>Markdown:</h1>
+          <div dangerouslySetInnerHTML={{ __html: htmlMarkdown }}></div>
+        </React.Fragment>
+      )}
     </>
   );
 };
