@@ -21,19 +21,21 @@ const MarkdownPrew: React.FC<IMarkdownPrew> = ({
   };
 
   return (
-    <Row gutter={[8, 16]}>
-      <Col span={12}>
-        <TextArea
-          style={{ minHeight: "200px" }}
-          autoSize={true}
-          onChange={changeHandler}
-          value={mdData}
-        />
-      </Col>
-      <Col span={12}>
-        <div dangerouslySetInnerHTML={{ __html: htmlMarkdown }}></div>
-      </Col>
-    </Row>
+    <div style={{ wordWrap: "break-word" }}>
+      <Row gutter={[8, 16]}>
+        <Col span={12}>
+          <TextArea
+            style={{ minHeight: "200px" }}
+            autoSize={true}
+            onChange={changeHandler}
+            value={mdData}
+          />
+        </Col>
+        <Col span={12}>
+          <div dangerouslySetInnerHTML={{ __html: htmlMarkdown }}></div>
+        </Col>
+      </Row>
+    </div>
   );
 };
 
