@@ -77,7 +77,7 @@ const Create = (): JSX.Element => {
     },
     {
       title: "Create Markdown page",
-      content: <MarkdownPrew getDataFoo={getDataFromMarkdown} />,
+      content: <MarkdownPrew getDataFoo={getDataFromMarkdown} htmlMarkdown={htmlMarkdown} mdData={mdBodyData} />,
     },
     {
       title: "Check data",
