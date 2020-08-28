@@ -1,15 +1,14 @@
 import React from "react";
-import rdmd from "@readme/markdown";
 
 interface ICheckTask {
-  rmBody: string;
+  htmlMarkdown: string;
   taskName: string;
   maxScore: number;
   taskDescription: string;
 }
 
 const CheckTask: React.FC<ICheckTask> = ({
-  rmBody,
+  htmlMarkdown,
   taskName,
   maxScore,
   taskDescription,
@@ -29,7 +28,8 @@ const CheckTask: React.FC<ICheckTask> = ({
           </React.Fragment>
         )}
       </div>
-      {rdmd(rmBody)}
+      <h1 style={{ marginBottom: "20px" }}>Markdown:</h1>
+      <div dangerouslySetInnerHTML={{ __html: htmlMarkdown }}></div>
     </>
   );
 };

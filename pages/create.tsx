@@ -8,6 +8,8 @@ import CheckTask from "../components/createTask/CheckTask";
 import { Steps, Button, message, Modal } from "antd";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 
+import showdown from "showdown"
+
 const { Step } = Steps;
 const { confirm } = Modal;
 
@@ -17,6 +19,9 @@ const Create = (): JSX.Element => {
   const [taskName, setTaskName] = useState<string>("");
   const [taskDescription, setTaskDescription] = useState<string>("");
   const [mdBodyData, setMdBodyData] = useState<string>("");
+
+  const converter = new showdown.Converter(),
+    htmlMarkdown = converter.makeHtml(mdBodyData);
 
   const getDataFromTaskname = (data: string) => {
     setTaskName(data);
@@ -78,7 +83,7 @@ const Create = (): JSX.Element => {
       title: "Check data",
       content: (
         <CheckTask
-          rmBody={mdBodyData}
+          htmlMarkdown={htmlMarkdown}
           taskName={taskName}
           maxScore={inputNumberValue}
           taskDescription={taskDescription}
